@@ -1,11 +1,10 @@
 import React from 'react'
 import './App.css'
+import AppRouter from './routers/AppRouter'
 
 const Main = () => {
     return (
-        <div className="bg-gray-600">
-            
-        </div>
+        <AppRouter/>
     )
 }
 
