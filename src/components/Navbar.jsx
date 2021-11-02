@@ -13,9 +13,10 @@ const Navbar = () => {
                     Asociaciones
                 </Link>
 
-                <div className="flex justify-between ml-10 opacity-70">
+                <div className="flex justify-between ml-10 ">
                     <NavLink
-                        className="mr-4"
+                        activeClassName="opacity-100 font-semibold"
+                        className="mr-4 opacity-70"
                         exact
                         to="/marvel"
                     >
@@ -23,6 +24,8 @@ const Navbar = () => {
                     </NavLink>
 
                     <NavLink
+                        activeClassName="opacity-100 font-semibold"
+                        className="opacity-70"
                         exact
                         to="/dc"
                     >
