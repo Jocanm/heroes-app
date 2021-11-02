@@ -1,6 +1,6 @@
 import React from 'react'
 
-const dcScreen = () => {
+const DcScreen = () => {
     return (
         <div>
             Dc screen
@@ -8,4 +8,4 @@ const dcScreen = () => {
     )
 }
 
-export default dcScreen
+export default DcScreen
