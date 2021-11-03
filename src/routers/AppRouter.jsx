@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import SearchScreen from '../components/SearchScreen';
 import PrivateLayout from '../layout/PrivateLayout';
 import DcScreen from '../pages/DcScreen';
 import HeroesScreen from '../pages/HeroesScreen'
@@ -25,8 +26,9 @@ const AppRouter = () => {
 
                             <Switch>
                                 <Route path="/marvel" component={MarvelScreen} />
-                                <Route path="/heroe/:heroeId" component={HeroesScreen} />
+                                <Route path="/hero/:heroeId" component={HeroesScreen} />
                                 <Route path="/dc" component={DcScreen} />
+                                <Route path="/search" component={SearchScreen} />
                                 <Redirect to="/marvel" />
                             </Switch>
 

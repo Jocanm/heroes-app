@@ -2,3 +2,11 @@
     max-width: 5rem;
     min-width: 80px;
 }
+
+.home-link{
+    bottom: 0.10rem;
+}
+
+.heroes-screen{
+    max-width: 15rem;
+}

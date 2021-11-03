@@ -7,7 +7,7 @@ const Navbar = () => {
 
             <div className="flex justify-between">
                 <Link
-                    className="font-semibold text-lg relative bottom-1"
+                    className="font-semibold text-lg relative home-link"
                     to="/"
                 >
                     Asociaciones
@@ -25,11 +25,19 @@ const Navbar = () => {
 
                     <NavLink
                         activeClassName="opacity-100 font-semibold"
-                        className="opacity-70"
+                        className="mr-4 opacity-70"
                         exact
                         to="/dc"
                     >
                         DC
+                    </NavLink>
+                    <NavLink
+                        activeClassName="opacity-100 font-semibold"
+                        className="opacity-70"
+                        exact
+                        to="/search"
+                    >
+                        <i className="fas fa-search"></i>
                     </NavLink>
                 </div>
             </div>
