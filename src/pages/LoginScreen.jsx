@@ -1,10 +1,27 @@
 import React from 'react'
+import { useAuth } from '../auth/AuthContext'
+import { types } from '../types/types'
 
 const LoginScreen = ({ history }) => {
 
+    const {dispatch} = useAuth()
+    const route = localStorage.getItem('path')
+
     const handleLogin = () => {
         // history.push("/");
-        history.replace('/')
+        // Con replace no se guarda en el historial de nevegación
+        // history.replace('/')
+        
+        dispatch({
+            type:types.login,
+            payload:{
+                name:"Jose"
+            }
+        })
+
+        if(route) history.replace(route)
+        else history.replace("/")
+
     }
 
     return (

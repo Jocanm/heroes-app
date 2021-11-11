@@ -1,7 +1,24 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useHistory } from 'react-router-dom'
+import { useAuth } from '../auth/AuthContext'
+import { types } from '../types/types'
 
 const Navbar = () => {
+
+    const {user,dispatch} = useAuth()
+
+    const history = useHistory()
+
+    const handleLogout = () => {
+
+        history.replace("/login")
+        
+        dispatch({
+            type:types.logout
+        })
+
+    }
+
     return (
         <nav className="flex justify-between bg-trueGray-700 py-4 px-6 text-white">
 
@@ -43,12 +60,15 @@ const Navbar = () => {
             </div>
 
             <div className="opacity-70">
-                <NavLink
-                exact
-                to="/login"
+                <span 
+                className="mr-6 opacity-100 text-blue-500 font-bold bg-warmGray-100 rounded-lg px-3 py-1">
+                    {user.name}
+                </span>
+                <button
+                onClick={handleLogout}
                 >
                     Logout
-                </NavLink>
+                </button>
             </div>
         </nav>
     )

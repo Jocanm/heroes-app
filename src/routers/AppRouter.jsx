@@ -6,33 +6,40 @@ import DcScreen from '../pages/DcScreen';
 import HeroesScreen from '../pages/HeroesScreen'
 import LoginScreen from '../pages/LoginScreen';
 import MarvelScreen from '../pages/MarvelScreen';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 const AppRouter = () => {
+
     return (
         <Router>
             <div>
                 <Switch>
 
                     <Route path={["/login"]}>
-                        <Switch>
+                        <PublicRoute>
+                            <Switch>
 
-                            <Route path="/login" component={LoginScreen} />
+                                <Route path="/login" component={LoginScreen} />
 
-                        </Switch>
+                            </Switch>
+                        </PublicRoute>
                     </Route>
 
                     <Route path={["/marvel", "/heroe/:heroeId", "/dc", "/"]} >
-                        <PrivateLayout>
+                        <PrivateRoute>
+                            <PrivateLayout>
 
-                            <Switch>
-                                <Route path="/marvel" component={MarvelScreen} />
-                                <Route path="/hero/:heroeId" component={HeroesScreen} />
-                                <Route path="/dc" component={DcScreen} />
-                                <Route path="/search" component={SearchScreen} />
-                                <Redirect to="/marvel" />
-                            </Switch>
+                                <Switch>
+                                    <Route path="/marvel" component={MarvelScreen} />
+                                    <Route path="/hero/:heroeId" component={HeroesScreen} />
+                                    <Route path="/dc" component={DcScreen} />
+                                    <Route path="/search" component={SearchScreen} />
+                                    <Redirect to="/marvel" />
+                                </Switch>
 
-                        </PrivateLayout>
+                            </PrivateLayout>
+                        </PrivateRoute>
                     </Route>
                 </Switch>
             </div>

@@ -4,10 +4,14 @@ import useForm from "../hooks/useForm";
 import { useLocation } from "react-router";
 import queryString from 'query-string'
 import getHeroesByName from "../selectors/getHeroesByName";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 
 const SearchScreen = ({ history }) => {
+
+    useEffect(()=>{
+        localStorage.setItem('path',history.location.pathname)
+    },[])
 
     const location = useLocation()
     const { q = "" } = queryString.parse(location.search)

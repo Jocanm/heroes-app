@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { Redirect, useParams } from 'react-router-dom'
 import { getHeroesByID } from '../selectors/getHeroesById'
 
@@ -7,6 +7,10 @@ const HeroesScreen = ({history}) => {
     const { heroeId } = useParams()
     // const heroe = getHeroesByID(heroeId)
 
+    useEffect(()=>{
+        localStorage.setItem('path',history.location.pathname)
+    },[])
+    
     const heroe = useMemo(() => getHeroesByID(heroeId), [heroeId])
 
     if (!heroe) {
@@ -22,6 +26,7 @@ const HeroesScreen = ({history}) => {
         history.push('/'):
         history.goBack()
     }
+
 
     return (
         <div className="p-10 pt-14 pl-20 flex flex-col md:flex-row">
